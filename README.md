@@ -3,40 +3,47 @@ AI-Powered Crop Recommendation Service
 This Project is a full-stack AI service that recommends optimal crops to farmers based on environmental conditions. It features a scalable vector search backend, a hybrid search capability, and an LLM-powered engine to provide clear explanations for its recommendations.
 
 Table of Contents
-Project Overview
-Features
-System Architecture
-Technologies Used
-Setup and Installation
+1.Project Overview
+2.Features
+3.System Architecture
+4.Technologies Used
+5.Setup and Installation
+
 Usage
-Running the API Server
-API Endpoint
-Interactive Notebook
-Future Improvements
+1.Running the API Server
+2.API Endpoint
+3.Interactive Notebook
+
 Project Overview
 The goal of this project is to provide an intelligent, data-driven tool for farmers. By inputting environmental data (temperature, humidity, moisture) and an optional keyword, users receive a list of the most suitable crops. What makes this service powerful is its ability to not only recommend but also explain why each crop is a good choice, leveraging a Large Language Model (LLM).
 
 The system is built as a RESTful API using FastAPI, making it easy to integrate with any front-end application (web or mobile).
 
 Features
-RESTful API: A robust backend built with FastAPI to serve crop recommendations.
-Hybrid Search: Combines keyword-based search with semantic (vector) search for more accurate and relevant results.
-Scalable Vector Database: Uses Astra DB (Cassandra) to store and efficiently query millions of crop data vectors.
-Explainable AI (XAI): Integrates with the Groq API to leverage the llama-3.3-70b-versatile model, providing users with human-readable explanations for each recommendation.
-Modular and Production-Ready: The logic is decoupled into a recommender module, and the API is ready for deployment.
+1.RESTful API: A robust backend built with FastAPI to serve crop recommendations.
+2.Hybrid Search: Combines keyword-based search with semantic (vector) search for more accurate and relevant results.
+3.Scalable Vector Database: Uses Astra DB (Cassandra) to store and efficiently query millions of crop data vectors.
+4.Explainable AI (XAI): Integrates with the Groq API to leverage the llama-3.3-70b-versatile model, providing users with human-readable explanations for each recommendation.
+5.Modular and Production-Ready: The logic is decoupled into a recommender module, and the API is ready for deployment.
+
 System Architecture
 The project follows a simple, yet powerful, architecture:
 
-API Layer (FastAPI): The app.py file defines the API endpoints. It receives user requests containing environmental data.
-Recommender Service (recommender.py): This module contains the core logic.
-It takes the input data and constructs a query.
-It performs a hybrid similarity search against the Astra DB vector store to retrieve the most relevant crops.
+1.API Layer (FastAPI): The app.py file defines the API endpoints. It receives user requests containing environmental data.
+
+2.Recommender Service (recommender.py): This module contains the core logic.
+
+It takes the input data and constructs a query.It performs a hybrid similarity search against the Astra DB vector store to retrieve the most relevant crops.
 The search results are then passed to the Groq LLM.
-LLM for Explanation: The LLM generates a detailed explanation based on the input conditions and the recommended crops.
-Response: The API returns a JSON object containing the list of recommended crops and the AI-generated explanation.
+
+3.LLM for Explanation: The LLM generates a detailed explanation based on the input conditions and the recommended crops.
+
+4.Response: The API returns a JSON object containing the list of recommended crops and the AI-generated explanation.
+
 Technologies Used
-Backend: FastAPI
-AI / ML:
+1.Backend: FastAPI
+
+2.AI / ML: 
 LangChain
 HuggingFace Transformers (sentence-transformers/all-MiniLM-L6-v2 for embeddings)
 Semantic & Hybrid Search
