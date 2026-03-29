@@ -67,3 +67,23 @@ You will need API keys for Astra DB and Groq. Create a file named .env in the ro
 The first time you run the application, it will populate the Astra DB vector store with data from Crop_recommendation.csv. This is handled by the recommender.py script. After the first successful run, you can comment out the line astra_vector_store.add_texts(crop_strings) in recommender.py to prevent re-indexing.
 
 Usage
+Running the API Server
+To start the FastAPI server, run the following command in your terminal:
+
+The server will be available at http://127.0.0.1:8000. You can access the interactive API documentation at http://127.0.0.1:8000/docs.
+
+API Endpoint
+POST /recommend_crops
+This endpoint accepts environmental data and an optional keyword to return crop recommendations.
+
+Request Body:
+
+keyword (optional): A specific crop or term to refine the search.
+Example curl Request:
+
+Success Response (200 OK):
+
+<img width="1081" height="417" alt="image" src="https://github.com/user-attachments/assets/796e5905-7fea-4cd2-865e-b3167bc19c7b" />
+
+Interactive Notebook
+For experimentation and testing, you can use the crop_recommend.ipynb Jupyter notebook. It provides a step-by-step guide to testing the recommendation logic interactively.
